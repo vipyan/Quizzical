@@ -95,15 +95,24 @@ button:disabled{
     font-size: .8rem;
     font-weight:500;
     padding: 1em 2em;
+    margin: 2em;
 }
 
+
+.question-container,
+.answer-container{
+  width: 90%;
+}
 
 /* Answer Section */
 .score-container{
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   gap: 2em;
+  margin: 2em;
+  text-align: center;
   
 }
 
@@ -115,4 +124,10 @@ button:disabled{
   padding: 1.3em 2.5em ;
   font-size: .9rem;
   font-weight:600;
+}
+
+@media(min-width: 581px){
+  .score-container{
+    flex-direction: row;
+  }
 }
