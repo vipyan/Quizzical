@@ -1,5 +1,6 @@
-
 # Quizzical
+
+[Live Demo → Quizzical on Netlify](https://quizzicalfor.netlify.app/)
 
 Quizzical is a simple React + TypeScript quiz application that fetches trivia questions from the [Open Trivia Database](https://opentdb.com/). Users can test their knowledge, check answers, see their score, and play again.
 
@@ -65,4 +66,5 @@ Quizzical is a simple React + TypeScript quiz application that fetches trivia qu
 ## Acknowledgements
 
 - [Open Trivia Database](https://opentdb.com/) for the trivia questions API
+-Scrimba solo project
 
