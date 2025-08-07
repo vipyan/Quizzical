@@ -26,7 +26,7 @@ export default function StartQuestion(props: startQuestionProps): JSX.Element {
       props.click(id,index)
   }
     
-    console.log("formated questions from Start quiz are", props.questions)
+    //console.log("formated questions from Start quiz are", props.questions)
     
     const questionEl = props.questions.map((question,i) => {
         const ansEl = question.answers.map((answer, index) =>
