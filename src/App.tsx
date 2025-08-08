@@ -126,16 +126,16 @@ function App(): JSX.Element {
       {isStartQuiz && <StartQuiz startQuiz={startQuiz} />}
 
       {/* Question section */}
-      {shouldShowQuestions && (
+      {shouldShowQuestions && ( questions.length  ?
         <StartQuestion
           click={processQuestionClick}
           questions={questions}
           startAnswer={checkAnswers}
-        />
+        />:<p className="loading">Loading...</p>
       )}
 
       {/* Answer section */}
-      {shouldShowAnswer && (
+      {shouldShowAnswer && ( 
         <StartAnswer
           score={score}
           questions={questions}
