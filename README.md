@@ -4,6 +4,10 @@
 
 Quizzical is a simple React + TypeScript quiz application that fetches trivia questions from the [Open Trivia Database](https://opentdb.com/). Users can test their knowledge, check answers, see their score, and play again.
 
+## Screen Shot
+
+![App Screenshot](./src/assets/images/Screenshot.png)
+
 ## Features
 
 - Fetches 5 random trivia questions (multiple choice and true/false)
@@ -11,6 +15,9 @@ Quizzical is a simple React + TypeScript quiz application that fetches trivia qu
 - Displays your score after completing the quiz
 - Option to play again
 - Responsive and clean UI
+- Automated tests for reliability and maintainability
+
+> Automated testing is integrated into the development workflow to ensure code reliability, support safe refactoring, and improve overall code quality.
 
 ## Getting Started
 
@@ -66,5 +73,4 @@ Quizzical is a simple React + TypeScript quiz application that fetches trivia qu
 ## Acknowledgements
 
 - [Open Trivia Database](https://opentdb.com/) for the trivia questions API
--Scrimba solo project
-
+-Inspired by Scrimba solo project
