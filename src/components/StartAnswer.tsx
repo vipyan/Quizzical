@@ -60,7 +60,7 @@ export default function StartAnswer(props: startAnswerProps): JSX.Element {
                 <div className='score-container'>
 
                     <p>You scored {props.score}/{props.questions.length} correct answers</p>
-                    <button onClick={ props.startQuiz } >Play again</button>
+                    <button onClick={ props.startQuiz } >Play Again</button>
                 </div>
             </section>
         </>
