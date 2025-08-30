@@ -16,8 +16,10 @@ Quizzical is a simple React + TypeScript quiz application that fetches trivia qu
 - Option to play again
 - Responsive and clean UI
 - Automated tests for reliability and maintainability
+- **Code splitting with React.lazy for optimized performance**
 
 > Automated testing is integrated into the development workflow to ensure code reliability, support safe refactoring, and improve overall code quality.
+> Code splitting is used to load quiz components only when needed, improving initial load time and user experience.
 
 ## Getting Started
 
@@ -70,7 +72,11 @@ Quizzical is a simple React + TypeScript quiz application that fetches trivia qu
 └── vite.config.ts
 ```
 
+## Code Splitting
+
+Quizzical uses React's `lazy` and `Suspense` for code splitting. Major components (`StartQuiz`, `StartQuestion`, `StartAnswer`) are loaded only when needed, reducing the initial bundle size and improving performance.
+
 ## Acknowledgements
 
 - [Open Trivia Database](https://opentdb.com/) for the trivia questions API
--Inspired by Scrimba solo project
+- Inspired by Scrimba solo project

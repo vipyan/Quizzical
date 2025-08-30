@@ -1,11 +1,18 @@
 import { useState, useEffect, useRef } from "react";
 import type { JSX } from "react";
-import StartQuiz from "./components/StartQuiz";
-import StartQuestion from "./components/StartQuestion";
-import StartAnswer from "./components/StartAnswer";
+//import StartQuiz from "./components/StartQuiz";
+//import StartQuestion from "./components/StartQuestion";
+//import StartAnswer from "./components/StartAnswer";
 import { nanoid } from "nanoid";
 import { decode } from "he";
 import { mockResults } from "./mock-data";
+//lazy loading
+import { lazy, Suspense } from "react";
+
+const StartQuiz = lazy(() => import("./components/StartQuiz"));
+const StartQuestion = lazy(() => import("./components/StartQuestion"));
+const StartAnswer = lazy(() => import("./components/StartAnswer"));
+
 
 export type TriviaQuestion = {
   category: string;
@@ -122,28 +129,59 @@ function App(): JSX.Element {
 
   return (
     <>
-      {/* Start section */}
-      {isStartQuiz && <StartQuiz startQuiz={startQuiz} />}
+      {isStartQuiz && (
+  <Suspense fallback={<p className="loading">Loading StartQuiz...</p>}>
+    <StartQuiz startQuiz={startQuiz} />
+  </Suspense>
+)}
 
-      {/* Question section */}
-      {shouldShowQuestions && ( questions.length  ?
-        <StartQuestion
-          click={processQuestionClick}
-          questions={questions}
-          startAnswer={checkAnswers}
-        />:<p className="loading">Loading...</p>
-      )}
+{shouldShowQuestions && (
+  <Suspense fallback={<p className="loading">Loading Questions...</p>}>
+    {questions.length ? (
+      <StartQuestion
+        click={processQuestionClick}
+        questions={questions}
+        startAnswer={checkAnswers}
+      />
+    ) : (
+      <p className="loading">Loading...</p>
+    )}
+  </Suspense>
+)}
 
-      {/* Answer section */}
-      {shouldShowAnswer && ( 
-        <StartAnswer
-          score={score}
-          questions={questions}
-          startQuiz={playAgain}
-        />
-      )}
+{shouldShowAnswer && (
+  <Suspense fallback={<p className="loading">Loading Answers...</p>}>
+    <StartAnswer
+      score={score}
+      questions={questions}
+      startQuiz={playAgain}
+    />
+  </Suspense>
+)}
+
     </>
   );
 }
 
 export default App
+
+// {/* Start section */}
+//       {isStartQuiz && <StartQuiz startQuiz={startQuiz} />}
+
+//       {/* Question section */}
+//       {shouldShowQuestions && ( questions.length  ?
+//         <StartQuestion
+//           click={processQuestionClick}
+//           questions={questions}
+//           startAnswer={checkAnswers}
+//         />:<p className="loading">Loading...</p>
+//       )}
+
+//       {/* Answer section */}
+//       {shouldShowAnswer && ( 
+//         <StartAnswer
+//           score={score}
+//           questions={questions}
+//           startQuiz={playAgain}
+//         />
+//       )}
