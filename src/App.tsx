@@ -47,7 +47,7 @@ function App(): JSX.Element {
   const [questions, setQuestions] = useState<FormattedQuestions[]>([]);
   const [isGameOver, setIsGameOver] = useState<boolean>(false);
 
-  const didFetch = useRef(false);
+  const didFetch = useRef<boolean>(false);
 
   useEffect(() => {
     if (didFetch.current) return;
