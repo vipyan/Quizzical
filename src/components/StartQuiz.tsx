@@ -1,10 +1,11 @@
 import type { JSX } from 'react'
+import React from 'react'
 
 type startQuizProps = {
     startQuiz: () => void
 }
 
-export default function startQuiz(props: startQuizProps):JSX.Element {
+function startQuiz(props: startQuizProps):JSX.Element {
     return (
         <>
             <section className='section section-start'>
@@ -16,3 +17,5 @@ export default function startQuiz(props: startQuizProps):JSX.Element {
         </>
     )
 }
+export default React.memo(startQuiz)
+// export default startQuiz

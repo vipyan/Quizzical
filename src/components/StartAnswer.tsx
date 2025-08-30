@@ -1,6 +1,7 @@
 import type { JSX } from 'react'
 import { decode } from 'he'
 import clsx from 'clsx';
+import React from 'react';
 
 type FormattedQuestions = {
     question: string;
@@ -21,7 +22,7 @@ type startAnswerProps = {
 
 
 
-export default function StartAnswer(props: startAnswerProps): JSX.Element {
+ function StartAnswer(props: startAnswerProps): JSX.Element {
 
     const questionEl = props.questions.map((question,i) => {
             const ansEl = question.answers.map((answer, index) =>
@@ -66,3 +67,6 @@ export default function StartAnswer(props: startAnswerProps): JSX.Element {
         </>
     )
 }
+
+export default React.memo(StartAnswer)
+//export default StartAnswer;

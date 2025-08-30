@@ -1,6 +1,7 @@
 import type { JSX } from 'react'
 import { decode } from 'he'
 import clsx from 'clsx';
+import React from 'react'
 
 
 type FormattedQuestions = {
@@ -20,7 +21,7 @@ type startQuestionProps = {
     click: (id: string, index: number) => void
 }
 
-export default function StartQuestion(props: startQuestionProps): JSX.Element {
+function StartQuestion(props: startQuestionProps): JSX.Element {
     
     function handleClick(id:string,index:number):void {
       props.click(id,index)
@@ -66,3 +67,6 @@ export default function StartQuestion(props: startQuestionProps): JSX.Element {
         </>
     )
 }
+
+export default React.memo(StartQuestion)
+//export default StartQuestion;
